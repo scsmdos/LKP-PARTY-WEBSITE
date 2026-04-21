@@ -27,9 +27,9 @@ export default function HeroSlider() {
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     let newIndex = 0;
-    if (latest >= 0.8) {
+    if (latest >= 0.66) {
       newIndex = 2;
-    } else if (latest >= 0.4) {
+    } else if (latest >= 0.33) {
       newIndex = 1;
     }
 
@@ -43,12 +43,11 @@ export default function HeroSlider() {
     <div
       ref={containerRef}
       className="relative w-full"
-      style={{ height: '200vh' }}
+      style={{ height: '300vh' }}
     >
       {/* 
-        PREMIUM FULL-SCREEN SLIDER FIX: 
-        - top-[64px] exactly aligns with the Navbar border so there is zero gap.
-        - h-[calc(100vh-64px)] makes the slider reach the EXACT bottom of the laptop screen! 
+        PREMIUM FULL-SCREEN SLIDER:
+        - h-[calc(100vh-64px)] ensures it fits perfectly between navbar and screen bottom.
       */}
       <div className="sticky top-[64px] w-full h-[calc(100vh-64px)] overflow-hidden bg-[#fdfaf5]">
         
@@ -57,24 +56,24 @@ export default function HeroSlider() {
             <motion.div
               key={current}
               custom={direction}
-              initial={{ y: direction > 0 ? '100%' : '-100%' }}
-              animate={{ y: 0 }}
-              exit={{ y: direction > 0 ? '-100%' : '100%' }}
-              transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
+              initial={{ y: '100%', scale: 1.1, opacity: 0 }}
+              animate={{ y: 0, scale: 1, opacity: 1 }}
+              exit={{ y: '-10%', scale: 0.95, opacity: 0 }}
+              transition={{ 
+                duration: 1.2, 
+                ease: [0.16, 1, 0.3, 1], // Custom premium ease out
+                opacity: { duration: 0.8 }
+              }}
               className="absolute inset-0 w-full h-full will-change-transform"
             >
-              <picture className="w-full h-full">
+              <picture className="w-full h-full flex items-center justify-center">
                 <source media="(max-width: 768px)" srcSet={slides[current].mobile} />
                 <img
                   src={slides[current].desktop}
                   alt={slides[current].alt}
                   loading="lazy"
                   decoding="async"
-                  /* 
-                    Using 'object-cover' perfectly fills the laptop screen space. 
-                    'object-center' ensures central focus so important elements avoid getting cut.
-                  */
-                  className="w-full h-full object-cover object-center select-none pointer-events-none"
+                  className="w-full h-full object-cover object-top select-none pointer-events-none"
                 />
               </picture>
             </motion.div>
@@ -94,8 +93,26 @@ export default function HeroSlider() {
           </div>
 
           {/* Animation Hint - Positioned perfectly near the bottom of the screen */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 opacity-40">
+          <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-30 opacity-40">
             <div className="w-[1px] h-12 bg-gradient-to-b from-maroon-700 to-transparent animate-pulse" />
+          </div>
+
+          {/* ─── Integrated Marquee Strip ─── */}
+          <div className="absolute bottom-0 w-full bg-gold py-2 overflow-hidden z-40 border-t border-white/20">
+            <div className="flex animate-marquee whitespace-nowrap">
+              {Array(4).fill([
+                '🪷 Jan Seva, Desh Vikas',
+                '🗳️ Join Lok Kalyan Party',
+                '🌾 Farmers First Policy',
+                '💪 Youth Empowerment',
+                '🏥 Universal Healthcare',
+                '📚 Education for All',
+              ]).flat().map((text, i) => (
+                <span key={i} className="font-heading font-bold text-maroon-800 mx-8 text-[11px] tracking-wide">
+                  {text}
+                </span>
+              ))}
+            </div>
           </div>
         </div>
       </div>

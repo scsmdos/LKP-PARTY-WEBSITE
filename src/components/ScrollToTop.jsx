@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FaArrowUp } from 'react-icons/fa'
 
 export default function ScrollToTop() {
+  const { pathname } = useLocation()
   const [visible, setVisible] = useState(false)
+
+  // Auto scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
 
   useEffect(() => {
     const handleScroll = () => setVisible(window.scrollY > 400)

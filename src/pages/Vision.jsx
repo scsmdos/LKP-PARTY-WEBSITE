@@ -33,13 +33,15 @@ export default function Vision() {
       <SectionWrapper className="bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
-            <span className="font-body text-gold font-semibold tracking-widest uppercase text-xs">The Big Picture</span>
-            <h2 className="section-title mt-2 gold-underline">Our Vision for India</h2>
-            <div className="mt-8 p-8 rounded-lg bg-maroon-gradient text-white relative overflow-hidden">
-              <p className="font-heading text-xl md:text-2xl font-light leading-relaxed italic relative z-10">
+            <span className="font-body text-gold font-bold tracking-[3px] uppercase text-[10px]">The Big Picture</span>
+            <h2 className="font-heading text-2xl md:text-3xl font-black text-maroon-900 mt-2">Our Vision for India</h2>
+            <div className="mt-8 p-10 rounded-[2rem] bg-maroon-50 border border-maroon-100 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-maroon-200/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+              <p className="font-heading text-lg md:text-xl font-medium leading-relaxed italic text-maroon-900 relative z-10">
                 "A prosperous, united, and self-reliant India where every citizen has equal access to opportunities, dignity and justice."
               </p>
-              <p className="mt-4 font-heading font-bold text-gold text-sm relative z-10">— Lok Kalyan Party Manifesto 2026</p>
+              <div className="w-12 h-0.5 bg-gold mx-auto my-4 rounded-full opacity-50" />
+              <p className="font-body font-black text-gold text-[10px] uppercase tracking-[2px] relative z-10">— Lok Kalyan Party Manifesto 2026</p>
             </div>
           </div>
 
@@ -49,11 +51,11 @@ export default function Vision() {
                 key={v.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="p-6 bg-gray-50 rounded-lg border border-transparent hover:border-gold/30 hover:shadow-lg transition-all"
+                className="p-8 bg-slate-50/50 rounded-2xl border border-slate-100 hover:border-gold/30 hover:shadow-xl transition-all"
               >
-                <div className="text-4xl mb-3">{v.icon}</div>
-                <h3 className="font-heading font-bold text-maroon-700 text-lg mb-2">{v.title}</h3>
-                <p className="font-body text-gray-500 text-xs leading-relaxed">{v.desc}</p>
+                <div className="text-3xl mb-4 opacity-80">{v.icon}</div>
+                <h3 className="font-heading font-black text-maroon-800 text-sm uppercase tracking-wider mb-2">{v.title}</h3>
+                <p className="font-body text-slate-500 text-[11px] leading-relaxed">{v.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -61,21 +63,22 @@ export default function Vision() {
       </SectionWrapper>
 
       {/* Mission Pillars */}
-      <SectionWrapper className="bg-gray-50">
+      <SectionWrapper className="bg-slate-50/80">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="section-title gold-underline">Our Mission Pillars</h2>
+          <div className="text-center mb-16">
+            <span className="font-body text-gold font-bold tracking-[3px] uppercase text-[10px]">Strategic Foundations</span>
+            <h2 className="font-heading text-2xl md:text-3xl font-black text-maroon-900 mt-2">Our Mission Pillars</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {missionPillars.map((p, i) => (
               <motion.div
                 key={p.no}
-                className="flex gap-5 bg-white p-6 rounded-lg shadow-sm border border-transparent hover:border-gold/20 transition-all"
+                className="flex gap-6 bg-white p-8 rounded-3xl shadow-sm border border-slate-100 hover:border-gold/20 transition-all"
               >
-                <span className="font-heading font-black text-4xl text-gold/30 flex-shrink-0">{p.no}</span>
+                <span className="font-heading font-black text-4xl text-gold/20 flex-shrink-0">{p.no}</span>
                 <div>
-                  <h3 className="font-heading font-bold text-maroon-700 text-base mb-2">{p.title}</h3>
-                  <p className="font-body text-gray-600 text-xs leading-relaxed">{p.desc}</p>
+                  <h3 className="font-heading font-black text-maroon-800 text-base mb-2 uppercase tracking-tight">{p.title}</h3>
+                  <p className="font-body text-slate-500 text-[11px] leading-relaxed">{p.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -84,20 +87,21 @@ export default function Vision() {
       </SectionWrapper>
 
       {/* 100-Day Plan CTA */}
-      <SectionWrapper className="bg-maroon-gradient">
-        <div className="max-w-4xl mx-auto px-4 text-center text-white">
-          <h2 className="font-heading text-4xl font-bold mb-6">Our 100-Day Action Plan</h2>
-          <p className="font-body text-white/80 text-lg mb-10 leading-relaxed">
+      <SectionWrapper className="bg-maroon-50 border-t border-maroon-100">
+        <div className="max-w-4xl mx-auto px-4 text-center">
+          <span className="font-body text-gold font-bold tracking-[4px] uppercase text-[10px]">Immediate Impact</span>
+          <h2 className="font-heading text-2xl md:text-3xl font-black text-maroon-900 mt-2 mb-4">Our 100-Day Action Plan</h2>
+          <p className="font-body text-slate-600 text-xs md:text-sm mb-10 leading-relaxed max-w-2xl mx-auto font-medium">
             Upon election, we commit to immediate action on healthcare, education, farmer welfare, and economic reform — within the first 100 days of governance.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
             {['50K Jobs', '100 Schools', '500 Clinics', '1K Roads'].map((item) => (
-              <div key={item} className="glass-card p-5 text-center">
-                <p className="font-heading font-black text-gold text-2xl">{item}</p>
+              <div key={item} className="bg-white p-6 rounded-2xl border border-maroon-100 shadow-sm">
+                <p className="font-heading font-black text-maroon-800 text-lg uppercase tracking-tight">{item}</p>
               </div>
             ))}
           </div>
-          <Link to="/campaigns" className="btn-gold text-lg px-10 py-4">
+          <Link to="/campaigns" className="inline-flex items-center justify-center bg-maroon-800 text-white font-heading font-bold text-[10px] uppercase tracking-[2px] px-10 py-4 rounded-xl hover:bg-maroon-700 transition-all shadow-xl">
             View Full Agenda
           </Link>
         </div>

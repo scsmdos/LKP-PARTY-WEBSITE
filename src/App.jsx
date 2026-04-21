@@ -7,7 +7,6 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 import Preloader from './components/Preloader'
-import StickyCTA from './components/StickyCTA'
 
 // Lazy Loaded Pages
 const Home = lazy(() => import('./pages/Home'))
@@ -16,6 +15,7 @@ const Vision = lazy(() => import('./pages/Vision'))
 const Leadership = lazy(() => import('./pages/Leadership'))
 const Campaigns = lazy(() => import('./pages/Campaigns'))
 const News = lazy(() => import('./pages/News'))
+const NewsDetail = lazy(() => import('./pages/NewsDetail'))
 const Media = lazy(() => import('./pages/Media'))
 const Gallery = lazy(() => import('./pages/Gallery'))
 const JoinUs = lazy(() => import('./pages/JoinUs'))
@@ -45,6 +45,7 @@ function AppContent() {
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/campaigns" element={<Campaigns />} />
             <Route path="/news" element={<News />} />
+            <Route path="/news/:id" element={<NewsDetail />} />
             <Route path="/media" element={<Media />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/join-us" element={<JoinUs />} />
@@ -56,7 +57,6 @@ function AppContent() {
       </AnimatePresence>
       <Footer />
       <ScrollToTop />
-      <StickyCTA />
     </>
   )
 }

@@ -7,50 +7,50 @@ import SectionWrapper from '../components/SectionWrapper'
 
 const allNews = [
   {
-    id: 1, category: 'National', date: 'April 18, 2026',
-    title: 'Lok Kalyan Party launches nationwide healthcare initiative for rural India',
-    excerpt: 'A groundbreaking program to bring mobile clinics and telemedicine to over 10,000 villages.',
-    img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
+    id: 1, category: 'Employment', date: 'April 20, 2026',
+    title: "LKP's 10 Lakh Jobs Blueprint: Reviving Bihar's Industrial Hubs",
+    excerpt: 'LKP leadership unveils a massive plan to re-open closed sugar mills and set up IT parks to provide local employment to Bihar youths.',
+    img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=800&q=80',
     featured: true,
   },
   {
-    id: 2, category: 'Youth', date: 'April 15, 2026',
-    title: 'LKP announces 50,000 scholarship scheme for meritorious students from rural backgrounds',
-    excerpt: 'Full funding for higher education including engineering, medical and management degrees.',
-    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
+    id: 2, category: 'Education', date: 'April 18, 2026',
+    title: "Transforming Bihar's Classrooms: 500 Smart Model Schools Announced",
+    excerpt: 'Under the "Nalanda Revival" initiative, every block in Bihar will feature a world-class digital learning center by 2027.',
+    img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&q=80',
     featured: false,
   },
   {
-    id: 3, category: 'Farmers', date: 'April 12, 2026',
-    title: 'Massive farmer rally in New Delhi draws thousands from 15 states',
-    excerpt: 'Party president unveils new agricultural policy with MSP guarantees and crop insurance reforms.',
-    img: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600&q=80',
+    id: 3, category: 'Migration Fix', date: 'April 15, 2026',
+    title: '"Bihar se Palayan Rokna" — LKP Pledges North Bihar Economic Corridor',
+    excerpt: 'To stop the mass migration of laborers, LKP plans to incentivize 10,000 SMEs in North Bihar to create local wealth.',
+    img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
     featured: false,
   },
   {
-    id: 4, category: 'Women', date: 'April 10, 2026',
-    title: 'Mahila Shakti Abhiyan crosses milestone — 100,000 SHGs registered nationwide',
-    excerpt: 'The women-led self-help group movement reaches a new peak with ₹500cr fund allocation.',
-    img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=600&q=80',
+    id: 4, category: 'Environment', date: 'April 12, 2026',
+    title: 'Harit Bihar Mission: 25 Million Trees to be Planted on Ganga Banks',
+    excerpt: 'A massive environmental drive to clean Mother Ganga and create green buffers across major Bihar cities starting this monsoon.',
+    img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80',
     featured: false,
   },
   {
-    id: 5, category: 'National', date: 'April 8, 2026',
-    title: 'LKP signs MoU with 5 tech companies for Digital Bharat Abhiyan expansion',
-    excerpt: 'New partnerships will bring high-speed internet to 20,000 additional villages by year end.',
-    img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+    id: 5, category: 'Employment', date: 'April 10, 2026',
+    title: "Bihar Skill Hubs: Empoweing 5 Lakh Rural Youths in First 100 Days",
+    excerpt: 'Vocational training centers in Muzaffarpur and Bhagalpur to be scaled nationwide to improve global job prospects.',
+    img: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?w=800&q=80',
     featured: false,
   },
   {
-    id: 6, category: 'Youth', date: 'April 5, 2026',
-    title: 'Youth Wing hosts national debate competition with 5,000 participants',
-    excerpt: 'Annual "Yuva Awaaz" competition empowers young voices on national policy issues.',
-    img: 'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80',
+    id: 6, category: 'Education', date: 'April 05, 2026',
+    title: 'Digital University Bihar: Bringing World-Class Learning to Remote Villages',
+    excerpt: 'LKP promises 100% scholarship for high-tech courses through Bihar’s first decentralized Digital University.',
+    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&q=80',
     featured: false,
   },
 ]
 
-const categories = ['All', 'National', 'Youth', 'Farmers', 'Women']
+const categories = ['All', 'Education', 'Employment', 'Environment', 'Migration Fix']
 
 export default function News() {
   const [filter, setFilter] = useState('All')
@@ -110,7 +110,7 @@ export default function News() {
                 animate={{ opacity: 1, y: 0 }}
                 className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 hover:border-gold/30 transition-all flex flex-col group"
               >
-                <div className="relative overflow-hidden h-44">
+                <Link to={`/news/${n.id}`} className="relative overflow-hidden h-44 block">
                   <img
                     src={n.img}
                     alt={n.title}
@@ -127,16 +127,18 @@ export default function News() {
                       </span>
                     )}
                   </div>
-                </div>
+                </Link>
                 <div className="p-5 flex-1 flex flex-col">
                   <p className="font-body text-gray-400 text-[10px] uppercase mb-2">{n.date}</p>
-                  <h3 className="font-heading font-bold text-maroon-700 text-base leading-tight mb-3 line-clamp-2">
-                    {n.title}
-                  </h3>
+                  <Link to={`/news/${n.id}`} className="hover:text-gold transition-colors">
+                    <h3 className="font-heading font-bold text-maroon-700 text-base leading-tight mb-3 line-clamp-2">
+                      {n.title}
+                    </h3>
+                  </Link>
                   <p className="font-body text-gray-500 text-xs leading-relaxed mb-5 line-clamp-2">{n.excerpt}</p>
-                  <button className="mt-auto font-heading font-bold text-gold text-xs inline-flex items-center gap-1 hover:gap-2 transition-all">
+                  <Link to={`/news/${n.id}`} className="mt-auto font-heading font-bold text-gold text-xs inline-flex items-center gap-1 hover:gap-2 transition-all">
                     READ MORE <FaArrowRight className="text-[10px]" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}

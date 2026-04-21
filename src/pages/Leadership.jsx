@@ -41,7 +41,7 @@ const leaders = [
     social: { twitter: '#', fb: '#', ig: '#' },
   },
   {
-    name: 'Kunal Kumar Singh',
+    name: 'Kunal Kumar (Bittu Singh)',
     role: 'State General Secretary',
     state: 'Bihar',
     years: '8+ years in youth leadership',
@@ -56,86 +56,157 @@ export default function Leadership() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <main>
+    <main className="bg-slate-50">
       <PageHero
         title="Our Leadership"
-        subtitle="The experienced, dedicated individuals who guide and shape Lok Kalyan Party."
+        subtitle="The visionaries leading the Lok Kalyan Party towards a prosperous Bihar and India."
         breadcrumb={[{ label: 'Leadership' }]}
       />
 
-      <SectionWrapper className="bg-white">
+      <SectionWrapper className="bg-slate-50 relative pt-12 pb-20">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-12">
-            <span className="font-body text-gold font-semibold tracking-widest uppercase text-xs">The People We Trust</span>
-            <h2 className="section-title mt-2 gold-underline">National Leadership</h2>
-            <p className="section-subtitle">Click on any leader to know more about their journey and achievements.</p>
+          <div className="text-center mb-16">
+            <span className="font-body text-gold font-bold tracking-[4px] uppercase text-[11px]">The Pillars of LKP</span>
+            <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-maroon-800 mt-2">National & State Leadership</h2>
+            <div className="w-24 h-1 bg-gold mx-auto mt-4 rounded-full" />
+            <p className="mt-6 text-slate-500 font-body max-w-2xl mx-auto text-sm md:text-base italic leading-relaxed">
+              "True leadership is not about power; it's about the responsibility to empower others for the welfare of the soil."
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Desktop Grid Layout */}
+          <div className="hidden lg:grid grid-cols-4 gap-6 mb-20">
             {leaders.map((leader, i) => (
               <motion.div
                 key={leader.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.6 }}
                 onClick={() => setSelected(leader)}
-                className="cursor-pointer group bg-white rounded-lg shadow-md overflow-hidden border border-transparent hover:border-gold/30 transition-all hover:-translate-y-1"
+                className="group cursor-pointer bg-white rounded-xl overflow-hidden border border-slate-200 hover:border-gold hover:shadow-2xl transition-all duration-500 flex flex-col h-full"
               >
-                <div className="relative h-56 overflow-hidden">
-                  <img
-                    src={leader.img}
-                    alt={leader.name}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/60 via-transparent to-transparent" />
+                <div className="relative h-80 overflow-hidden bg-slate-100">
+                  <img src={leader.img} alt={leader.name} className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
-                <div className="p-5">
-                  <h3 className="font-heading font-bold text-maroon-700 text-lg mb-1">{leader.name}</h3>
-                  <p className="font-body text-gold font-semibold text-xs mb-2">{leader.role} • {leader.state}</p>
+                <div className="p-6 text-center flex-grow flex flex-col items-center">
+                  <h3 className="font-heading font-extrabold text-maroon-800 text-lg mb-1">{leader.name}</h3>
+                  <p className="font-body text-gold text-[10px] font-bold uppercase tracking-widest">{leader.role}</p>
+                  <div className="w-8 h-0.5 bg-gold/30 mx-auto my-3 group-hover:w-16 transition-all duration-500" />
+                  <p className="text-[11px] text-slate-500 font-body italic leading-relaxed line-clamp-2 px-2">
+                    {leader.bio}
+                  </p>
                 </div>
               </motion.div>
+            ))}
+          </div>
+
+          {/* Mobile Stacking View - Sticky Full Screen */}
+          <div className="lg:hidden flex flex-col -mx-4">
+            {leaders.map((leader, i) => (
+              <div key={leader.name} className="sticky top-0 h-screen w-full bg-slate-50 overflow-hidden">
+                <motion.div 
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                  transition={{ duration: 0.8 }}
+                  className="bg-white relative h-full w-full"
+                  onClick={() => setSelected(leader)}
+                >
+                  {/* Full Screen Photo */}
+                  <img src={leader.img} alt={leader.name} className="absolute inset-0 w-full h-full object-cover object-top" />
+                  
+                  {/* Bottom Content Overlay */}
+                  <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-maroon-950 via-maroon-950/80 to-transparent flex flex-col justify-end p-8 pb-32">
+                    <motion.div
+                      initial={{ y: 30, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      transition={{ delay: 0.2, duration: 0.6 }}
+                    >
+                      <h3 className="font-heading font-black text-white text-3xl mb-1">{leader.name}</h3>
+                      <p className="font-body text-gold text-sm font-black uppercase tracking-[4px] mb-4">{leader.role}</p>
+                      <p className="text-white/60 font-body text-xs mb-6 font-medium italic leading-relaxed">"{leader.bio.substring(0, 120)}..."</p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </SectionWrapper>
 
-      {/* Leader Modal */}
+      {/* Leader Modal - Unified for both desktop/mobile details */}
       <AnimatePresence>
         {selected && (
           <motion.div
-            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-maroon-950/70 backdrop-blur-sm"
+            className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-maroon-950/90 backdrop-blur-md"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setSelected(null)}
           >
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.9, opacity: 0, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-lg shadow-xl overflow-hidden max-w-xl w-full max-h-[85vh] overflow-y-auto"
+              className="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row"
             >
-              <div className="relative h-60">
+              <div className="md:w-2/5 relative h-64 md:h-auto">
                 <img src={selected.img} alt={selected.name} className="w-full h-full object-cover object-top" />
-                <div className="absolute inset-0 bg-gradient-to-t from-maroon-900/80 to-transparent" />
-                <button onClick={() => setSelected(null)} className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/20 text-white flex items-center justify-center hover:bg-white hover:text-maroon-900 transition-colors">
-                  <FaTimes className="text-sm" />
-                </button>
-                <div className="absolute bottom-5 left-6">
-                  <h2 className="font-heading font-bold text-white text-xl">{selected.name}</h2>
-                  <p className="font-body text-gold text-xs">{selected.role}</p>
+                <div className="absolute inset-0 bg-gradient-to-t from-maroon-950/60 md:hidden" />
+                <div className="absolute bottom-6 left-6 md:hidden">
+                  <h2 className="font-heading font-bold text-white text-2xl">{selected.name}</h2>
+                  <p className="font-body text-gold text-xs font-bold uppercase tracking-widest">{selected.role}</p>
                 </div>
               </div>
-              <div className="p-6">
-                <p className="font-body text-gray-600 leading-relaxed mb-6 text-sm">{selected.bio}</p>
-                <h4 className="font-heading font-bold text-maroon-700 text-base mb-3">Achievements</h4>
-                <ul className="space-y-2">
-                  {selected.achievements.map((a) => (
-                    <li key={a} className="flex items-start gap-2 font-body text-gray-600 text-xs">
-                      <span className="text-gold">•</span> {a}
-                    </li>
-                  ))}
-                </ul>
+              
+              <div className="md:w-3/5 p-8 md:p-12 overflow-y-auto relative">
+                <button 
+                  onClick={() => setSelected(null)} 
+                  className="absolute top-6 right-6 w-10 h-10 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-maroon-100 hover:text-maroon-700 transition-all z-10"
+                >
+                  <FaTimes />
+                </button>
+
+                <div className="hidden md:block mb-8">
+                  <span className="font-body text-gold font-bold tracking-[3px] uppercase text-[9px] mb-2 block">{selected.name} • Profile</span>
+                  <h2 className="font-heading font-black text-maroon-900 text-3xl mb-1">{selected.name}</h2>
+                  <p className="font-body text-maroon-600/70 text-sm font-bold uppercase tracking-widest">{selected.role}</p>
+                  <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
+                </div>
+
+                <div className="space-y-8">
+                  <div>
+                    <h4 className="font-heading font-black text-maroon-800 text-[11px] uppercase tracking-[2px] mb-4 flex items-center gap-2">
+                       Biography
+                    </h4>
+                    <p className="font-body text-slate-600 leading-relaxed text-sm md:text-base">
+                      {selected.bio}
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 className="font-heading font-black text-maroon-800 text-[11px] uppercase tracking-[2px] mb-4">
+                      Key Contributions
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      {selected.achievements.map((a, idx) => (
+                        <div key={idx} className="flex items-center gap-3 bg-slate-50 p-3 rounded-xl border border-slate-100">
+                          <div className="w-1.5 h-1.5 rounded-full bg-gold shrink-0" />
+                          <span className="font-body text-slate-700 text-xs font-semibold">{a}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <div className="flex gap-4">
+                      <a href={selected.social.twitter} className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-50 hover:text-blue-500 transition-all"><FaTwitter /></a>
+                      <a href={selected.social.fb} className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-blue-100 hover:text-blue-800 transition-all"><FaFacebookF /></a>
+                      <a href={selected.social.ig} className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-pink-50 hover:text-pink-600 transition-all"><FaInstagram /></a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </motion.div>

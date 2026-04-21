@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
 import CountUp from 'react-countup'
@@ -13,6 +13,12 @@ import logo from '../assets/logo.png'
 import HeroSlider from '../components/HeroSlider'
 import SectionWrapper from '../components/SectionWrapper'
 import SankalpCarousel from '../components/SankalpCarousel'
+
+import l1 from '../assets/abhimanyu-kumar-singh.png'
+import l2 from '../assets/Sachin Singh.jpeg'
+import l3 from '../assets/Mukesh Kr Dubey.jpeg'
+import l4 from '../assets/Kunal Kumar Singh.jpeg'
+import aboutImg from '../assets/about.png'
 
 // Data
 const values = [
@@ -30,11 +36,6 @@ const stats = [
   { icon: <FaMapMarkedAlt />, value: 5, suffix: '', label: 'Major Regions' },
   { icon: <FaAward />, value: 4, suffix: '', label: 'Seva Awards' },
 ]
-
-import l1 from '../assets/abhimanyu-kumar-singh.png'
-import l2 from '../assets/Sachin Singh.jpeg'
-import l3 from '../assets/Mukesh Kr Dubey.jpeg'
-import l4 from '../assets/Kunal Kumar Singh.jpeg'
 
 const leaders = [
   {
@@ -56,7 +57,7 @@ const leaders = [
     img: l3,
   },
   {
-    name: 'Kunal Kumar Singh',
+    name: 'Kunal Kumar (Bittu Singh)',
     role: 'Chief Coordinator',
     quote: 'Empowering the youth and protecting our culture is our primary mission.',
     img: l4,
@@ -65,25 +66,28 @@ const leaders = [
 
 const news = [
   {
-    tag: 'National',
+    id: 1,
+    tag: 'Employment',
+    date: 'April 20, 2026',
+    title: "LKP's 10 Lakh Jobs Blueprint: Reviving Bihar's Industrial Hubs",
+    excerpt: 'LKP leadership unveils a massive plan to re-open closed sugar mills and set up IT parks to provide local employment.',
+    img: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&q=80',
+  },
+  {
+    id: 2,
+    tag: 'Education',
     date: 'April 18, 2026',
-    title: 'Lok Kalyan Party launches nationwide healthcare initiative for rural India',
-    excerpt: 'A groundbreaking program to bring mobile clinics and telemedicine to over 10,000 villages across 20 states.',
-    img: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80',
+    title: "Transforming বিহার's Classrooms: 500 Smart Model Schools",
+    excerpt: 'Under the "Nalanda Revival" initiative, every block in Bihar will feature a world-class digital learning center by 2027.',
+    img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&q=80',
   },
   {
-    tag: 'Youth',
+    id: 3,
+    tag: 'Migration Fix',
     date: 'April 15, 2026',
-    title: 'LKP announces 50,000 scholarship scheme for meritorious students from rural backgrounds',
-    excerpt: 'Full funding for higher education including engineering, medical and management degrees.',
-    img: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&q=80',
-  },
-  {
-    tag: 'Farmers',
-    date: 'April 12, 2026',
-    title: 'Massive farmer rally in New Delhi draws thousands from 15 states',
-    excerpt: 'Party president unveils new agricultural policy with MSP guarantees and crop insurance reforms.',
-    img: 'https://images.unsplash.com/photo-1542281286-9e0a16bb7366?w=600&q=80',
+    title: '"Bihar se Palayan Rokna" — LKP Pledges Economic Corridor',
+    excerpt: 'To stop the mass migration of laborers, LKP plans to incentivize 10,000 SMEs in North Bihar to create local wealth and jobs.',
+    img: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=600&q=80',
   },
 ]
 
@@ -95,12 +99,12 @@ const campaigns = [
 ]
 
 const gallery = [
-  'https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=600&q=80',
-  'https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=600&q=80',
-  'https://images.unsplash.com/photo-1576153192396-180ecef2a715?w=600&q=80',
-  'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=600&q=80',
-  'https://images.unsplash.com/photo-1620293023640-0e56fd0e62e5?w=600&q=80',
-  'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80',
+  l1,
+  l2,
+  l3,
+  l4,
+  aboutImg,
+  'https://images.unsplash.com/photo-1532375810709-7d91f66c1488?w=600&q=80', // Riverfront/Bihar vibes
 ]
 
 // Card animation helper
@@ -142,28 +146,12 @@ function StatCard({ stat, delay }) {
 }
 
 export default function Home() {
+  const navigate = useNavigate()
+
   return (
     <main>
-      {/* Hero Slider */}
+      {/* Hero Slider with Integrated Marquee */}
       <HeroSlider />
-
-      {/* ─── Marquee Strip ─── */}
-      <div className="bg-gold py-3 overflow-hidden">
-        <div className="flex animate-marquee whitespace-nowrap">
-          {Array(4).fill([
-            '🪷 Jan Seva, Desh Vikas',
-            '🗳️ Join Lok Kalyan Party',
-            '🌾 Farmers First Policy',
-            '💪 Youth Empowerment',
-            '🏥 Universal Healthcare',
-            '📚 Education for All',
-          ]).flat().map((text, i) => (
-            <span key={i} className="font-heading font-bold text-maroon-800 mx-8 text-sm tracking-wide">
-              {text}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* ─── LKP Sankalp 2026 Carousel (Reference Match) ─── */}
       <SankalpCarousel />
@@ -177,8 +165,8 @@ export default function Home() {
                 <img src={logo} alt="Logo" className="w-full h-full object-contain brightness-110 contrast-125" />
               </div>
               <img
-                src="https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=800&q=80"
-                alt="Bihar Development Rally"
+                src={aboutImg}
+                alt="Bihar Leadership"
                 className="w-full h-80 object-cover rounded-xl shadow-xl"
               />
               <div className="absolute -bottom-4 -right-4 bg-gold p-4 rounded-lg shadow-gold text-maroon-900 border border-white/20">
@@ -368,12 +356,20 @@ export default function Home() {
           <h2 className="section-title gold-underline text-center mb-10">News & Updates</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {news.map((n, i) => (
-              <AnimCard key={n.title} delay={i * 0.1}>
-                <div className="news-card rounded-lg">
-                  <img src={n.img} className="w-full h-44 object-cover" alt={n.title} />
+              <AnimCard key={n.id} delay={i * 0.1}>
+                <div 
+                  onClick={() => navigate(`/news/${n.id}`)} 
+                  className="news-card rounded-lg block group cursor-pointer border border-transparent hover:border-gold/20 transition-all duration-300 shadow-sm hover:shadow-xl"
+                >
+                  <div className="overflow-hidden h-44">
+                    <img src={n.img} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" alt={n.title} />
+                  </div>
                   <div className="p-4">
-                    <h3 className="font-heading font-bold text-maroon-700 text-sm mb-2 leading-tight">{n.title}</h3>
+                    <h3 className="font-heading font-bold text-maroon-700 text-sm mb-2 leading-tight group-hover:text-gold transition-colors">{n.title}</h3>
                     <p className="font-body text-gray-500 text-xs line-clamp-2">{n.excerpt}</p>
+                    <div className="mt-4 flex items-center gap-1 text-gold font-bold text-[10px] uppercase tracking-wider">
+                      Read Details <FaArrowRight className="text-[8px]" />
+                    </div>
                   </div>
                 </div>
               </AnimCard>
