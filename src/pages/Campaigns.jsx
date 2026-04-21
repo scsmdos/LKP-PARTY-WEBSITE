@@ -112,7 +112,7 @@ export default function Campaigns() {
         <div className="max-w-3xl mx-auto px-4 text-center">
           <h2 className="font-heading text-4xl font-bold text-maroon-700 mb-4">Want to Volunteer?</h2>
           <p className="font-body text-gray-600 mb-8">Join thousands of volunteers working on the ground to make our campaigns successful.</p>
-          <Link to="/join-us" className="btn-primary text-lg px-10 py-4 inline-flex items-center gap-2">
+          <Link to="/join-us" className="btn-primary gap-2 !px-8 !py-3">
             🙌 Become a Volunteer
           </Link>
         </div>

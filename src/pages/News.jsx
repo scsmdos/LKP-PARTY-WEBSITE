@@ -74,20 +74,22 @@ export default function News() {
         <div className="max-w-7xl mx-auto px-4">
           {/* Filter Bar: Centered on Mobile */}
           <div className="flex flex-col md:flex-row gap-6 mb-12 items-center justify-between">
-            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setFilter(cat)}
-                  className={`font-heading font-semibold text-[10px] sm:text-[11px] px-5 py-2 rounded-md border-2 transition-all ${
-                    filter === cat
-                      ? 'bg-maroon-700 text-white border-maroon-700 shadow-md'
-                      : 'border-gray-100 text-gray-500 hover:border-maroon-400 hover:text-maroon-700'
-                  }`}
-                >
-                  {cat.toUpperCase()}
-                </button>
-              ))}
+            <div className="flex w-full overflow-x-auto pb-4 scrollbar-hide md:pb-0 md:w-auto">
+              <div className="flex flex-nowrap gap-2 min-w-max">
+                {categories.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => setFilter(cat)}
+                    className={`font-heading font-semibold text-[10px] sm:text-[11px] px-5 py-2 rounded-md border-2 transition-all whitespace-nowrap ${
+                      filter === cat
+                        ? 'bg-maroon-700 text-white border-maroon-700 shadow-md'
+                        : 'border-gray-100 text-gray-500 hover:border-maroon-400 hover:text-maroon-700'
+                    }`}
+                  >
+                    {cat.toUpperCase()}
+                  </button>
+                ))}
+              </div>
             </div>
             <div className="relative w-full md:w-auto flex justify-center">
               <FaSearch className="absolute left-6 md:left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xs" />

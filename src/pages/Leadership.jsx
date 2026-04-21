@@ -66,9 +66,9 @@ export default function Leadership() {
       <SectionWrapper className="bg-slate-50 relative pt-12 pb-20">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-16">
-            <span className="font-body text-gold font-bold tracking-[4px] uppercase text-[11px]">The Pillars of LKP</span>
+            <span className="font-body text-gold font-bold tracking-[4px] uppercase text-xs">The Pillars of LKP</span>
             <h2 className="font-heading text-3xl md:text-5xl font-extrabold text-maroon-800 mt-2">National & State Leadership</h2>
-            <div className="w-24 h-1 bg-gold mx-auto mt-4 rounded-full" />
+            <div className="w-24 h-1 bg-gold mx-auto mt-4 rounded" />
             <p className="mt-6 text-slate-500 font-body max-w-2xl mx-auto text-sm md:text-base italic leading-relaxed">
               "True leadership is not about power; it's about the responsibility to empower others for the welfare of the soil."
             </p>
@@ -91,9 +91,9 @@ export default function Leadership() {
                 </div>
                 <div className="p-6 text-center flex-grow flex flex-col items-center">
                   <h3 className="font-heading font-extrabold text-maroon-800 text-lg mb-1">{leader.name}</h3>
-                  <p className="font-body text-gold text-[10px] font-bold uppercase tracking-widest">{leader.role}</p>
+                  <p className="font-body text-gold text-xs font-bold uppercase tracking-widest">{leader.role}</p>
                   <div className="w-8 h-0.5 bg-gold/30 mx-auto my-3 group-hover:w-16 transition-all duration-500" />
-                  <p className="text-[11px] text-slate-500 font-body italic leading-relaxed line-clamp-2 px-2">
+                  <p className="text-sm text-slate-500 font-body italic leading-relaxed line-clamp-2 px-2">
                     {leader.bio}
                   </p>
                 </div>
@@ -149,7 +149,7 @@ export default function Leadership() {
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl shadow-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row"
+              className="bg-white rounded shadow-2xl overflow-hidden max-w-4xl w-full max-h-[90vh] flex flex-col md:flex-row"
             >
               <div className="md:w-2/5 relative h-64 md:h-auto">
                 <img src={selected.img} alt={selected.name} className="w-full h-full object-cover object-top" />
@@ -169,15 +169,15 @@ export default function Leadership() {
                 </button>
 
                 <div className="hidden md:block mb-8">
-                  <span className="font-body text-gold font-bold tracking-[3px] uppercase text-[9px] mb-2 block">{selected.name} • Profile</span>
+                  <span className="font-body text-gold font-bold tracking-[3px] uppercase text-xs mb-2 block">{selected.name} • Profile</span>
                   <h2 className="font-heading font-black text-maroon-900 text-3xl mb-1">{selected.name}</h2>
                   <p className="font-body text-maroon-600/70 text-sm font-bold uppercase tracking-widest">{selected.role}</p>
-                  <div className="w-12 h-1 bg-gold mt-4 rounded-full" />
+                  <div className="w-12 h-1 bg-gold mt-4 rounded" />
                 </div>
 
                 <div className="space-y-8">
                   <div>
-                    <h4 className="font-heading font-black text-maroon-800 text-[11px] uppercase tracking-[2px] mb-4 flex items-center gap-2">
+                    <h4 className="font-heading font-black text-maroon-800 text-xs uppercase tracking-[2px] mb-4 flex items-center gap-2">
                        Biography
                     </h4>
                     <p className="font-body text-slate-600 leading-relaxed text-sm md:text-base">
@@ -186,7 +186,7 @@ export default function Leadership() {
                   </div>
 
                   <div>
-                    <h4 className="font-heading font-black text-maroon-800 text-[11px] uppercase tracking-[2px] mb-4">
+                    <h4 className="font-heading font-black text-maroon-800 text-xs uppercase tracking-[2px] mb-4">
                       Key Contributions
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">

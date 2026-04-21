@@ -28,7 +28,7 @@ export default function About() {
       />
 
       {/* ─── Our Story: Compact & Impactful ─── */}
-      <SectionWrapper className="bg-white py-12 md:py-16">
+      <SectionWrapper className="bg-white !py-8 md:!py-12">
         <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -36,11 +36,11 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative z-10 flex flex-col justify-center"
           >
-            <span className="font-body text-maroon-600 font-bold tracking-[3px] uppercase text-[11px]">The LKP Journey</span>
-            <h2 className="font-heading text-[22px] md:text-[32px] font-black text-maroon-950 mt-3 leading-tight tracking-tight">
+            <span className="font-body text-maroon-600 font-bold tracking-[3px] uppercase text-xs">The LKP Journey</span>
+            <h2 className="font-heading text-[22px] sm:text-2xl md:text-3xl lg:text-4xl font-bold text-maroon-700 mt-3 whitespace-nowrap">
               Rooted in the Soil of <span className="text-gold">Bihar.</span>
             </h2>
-            <div className="w-16 h-1 bg-gold mt-4 mb-6 rounded-full" />
+            <div className="w-16 h-1 bg-gold mt-2 mb-6 rounded-full" />
             
             <div className="font-body text-gray-700 text-sm md:text-base leading-relaxed space-y-4">
               <p>
@@ -49,7 +49,7 @@ export default function About() {
               <p>
                 Our leadership is committed to a <span className="text-maroon-900 font-bold">Bihar-First</span> strategy. From reforming education to ensuring fair prices for farmers, we are here to deliver results.
               </p>
-              <p className="border-l-4 border-gold pl-5 font-semibold py-2 italic text-maroon-800 bg-slate-50/80 rounded-r-lg">
+              <p className="border-l-4 border-gold pl-5 font-semibold py-2 italic text-maroon-800 bg-slate-50/80 rounded">
                 "We build a Bihar where every citizen walks with pride."
               </p>
               <p>
@@ -58,7 +58,7 @@ export default function About() {
             </div>
             
             <div className="mt-8">
-              <Link to="/vision" className="inline-flex items-center justify-center bg-maroon-800 text-white font-heading font-bold text-xs uppercase tracking-[2px] px-10 py-4 rounded-xl hover:bg-maroon-700 transition-all shadow-xl">
+              <Link to="/vision" className="btn-primary">
                 Our Vision <FaArrowRight className="ml-3 text-[10px]" />
               </Link>
             </div>
@@ -70,10 +70,10 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative order-first lg:order-last"
           >
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-maroon-900 rounded-2xl flex items-center justify-center shadow-xl z-10 p-4 border-2 border-white">
+            <div className="absolute -top-4 -left-4 w-20 h-20 bg-maroon-900 rounded flex items-center justify-center shadow-xl z-10 p-4 border-2 border-white">
               <img src={logo} alt="LKP Logo" className="w-full h-full object-contain" />
             </div>
-            <div className="aspect-[4/3] lg:h-[450px] overflow-hidden rounded-[2rem] shadow-2xl border-4 md:border-8 border-white">
+            <div className="aspect-[4/3] lg:h-[450px] overflow-hidden rounded shadow-2xl border-4 md:border-8 border-white">
               <img
                 src={aboutImg}
                 alt="Leadership"
@@ -85,11 +85,11 @@ export default function About() {
       </SectionWrapper>
 
       {/* Core Ideology: Clean & Authoritative */}
-      <SectionWrapper className="bg-gray-50 py-12">
+      <SectionWrapper className="bg-gray-50 !py-8 md:!py-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <span className="font-body text-maroon-600 font-bold tracking-[3px] uppercase text-[10px]">Our Pillars</span>
-            <h2 className="font-heading text-3xl md:text-4xl font-black text-maroon-950 mt-2">Our Ideology</h2>
+            <span className="font-body text-maroon-600 font-bold tracking-[3px] uppercase text-xs">Our Pillars</span>
+            <h2 className="section-title mt-2">Our Ideology</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {ideology.map((item, i) => (
@@ -101,7 +101,7 @@ export default function About() {
                 className="flex items-center gap-3 bg-white p-5 rounded-xl shadow-sm border border-transparent hover:border-gold/30 transition-all"
               >
                 <FaCheckCircle className="text-gold text-base flex-shrink-0" />
-                <span className="font-heading font-bold text-maroon-800 text-xs leading-tight">{item}</span>
+                <span className="font-heading font-bold text-maroon-800 text-sm leading-tight">{item}</span>
               </motion.div>
             ))}
           </div>
@@ -110,9 +110,9 @@ export default function About() {
 
       <section className="bg-maroon-50 py-20 text-center border-y border-maroon-100">
         <div className="max-w-3xl mx-auto px-4">
-          <h2 className="font-heading text-4xl font-black text-maroon-900 mb-4">Be a Part of Our Story</h2>
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-black text-maroon-900 mb-4 whitespace-nowrap">Be a Part of Our Story</h2>
           <p className="font-body text-maroon-700/80 mb-8 font-medium">Join millions of Indians who are building a better tomorrow with Lok Kalyan Party.</p>
-          <Link to="/join-us" className="inline-flex items-center justify-center bg-maroon-800 text-white font-heading font-black text-sm uppercase tracking-[2px] px-12 py-5 rounded-2xl hover:bg-maroon-700 transition-all shadow-xl hover:-translate-y-1">
+          <Link to="/join-us" className="btn-primary">
             Join the Party
           </Link>
         </div>

@@ -43,17 +43,17 @@ export default function Gallery() {
         breadcrumb={[{ label: 'Gallery' }]}
       />
 
-      <SectionWrapper className="bg-white">
+      <SectionWrapper className="bg-white !py-8 md:!py-12">
         <div className="max-w-7xl mx-auto px-4">
           {/* Filter */}
-          <div className="flex flex-wrap gap-2 justify-center mb-10">
+          <div className="flex flex-nowrap gap-1 sm:gap-2 justify-center mb-6 overflow-hidden">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`font-heading font-semibold text-xs px-5 py-2 rounded-md border-2 transition-all duration-300 ${
+                className={`font-heading font-semibold text-[10px] sm:text-[11px] px-3 sm:px-5 py-2 rounded-md border-2 transition-all duration-300 whitespace-nowrap ${
                   filter === cat
-                    ? 'bg-maroon-600 text-white border-maroon-600 shadow-maroon'
+                    ? 'bg-maroon-600 text-white border-maroon-600'
                     : 'border-gray-200 text-gray-500 hover:border-maroon-400 hover:text-maroon-600'
                 }`}
               >

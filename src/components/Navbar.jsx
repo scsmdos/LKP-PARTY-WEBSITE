@@ -80,7 +80,7 @@ export default function Navbar() {
             to="/join-us"
             className="bg-[#7A0000] hover:bg-[#600000] text-white font-heading font-bold text-[11px] px-6 py-2 rounded-[4px] transition-all shadow-md"
           >
-            Join Us
+            Join LKP
           </Link>
         </div>
 
@@ -121,7 +121,7 @@ export default function Navbar() {
                   Donate
                 </Link>
                 <Link to="/join-us" className="w-full bg-[#7a0000] text-center py-3 rounded font-heading font-bold text-white">
-                  Join Us
+                  Join LKP
                 </Link>
               </div>
             </div>

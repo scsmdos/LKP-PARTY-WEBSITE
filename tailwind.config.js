@@ -27,8 +27,19 @@ export default {
         },
       },
       fontFamily: {
-        heading: ['Montserrat', 'sans-serif'],
-        body: ['Poppins', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+      borderRadius: {
+        'none': '0',
+        'sm': '4px',
+        DEFAULT: '4px',
+        'md': '4px',
+        'lg': '4px',
+        'xl': '4px',
+        '2xl': '4px',
+        '3xl': '4px',
+        'full': '9999px',
       },
       backgroundImage: {
         'maroon-gradient': 'linear-gradient(135deg, #6D0F0F 0%, #8B0000 100%)',
@@ -61,8 +72,8 @@ export default {
         },
       },
       boxShadow: {
-        'gold': '0 4px 30px rgba(212, 175, 55, 0.3)',
-        'maroon': '0 4px 30px rgba(139, 0, 0, 0.4)',
+        'gold': '0 2px 10px rgba(212, 175, 55, 0.15)',
+        'maroon': '0 2px 10px rgba(139, 0, 0, 0.15)',
         'glass': '0 8px 32px rgba(0, 0, 0, 0.37)',
       },
       backdropBlur: {

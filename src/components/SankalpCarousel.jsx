@@ -53,14 +53,14 @@ const items = [
 
 export default function SankalpCarousel() {
   return (
-    <section className="relative w-full h-screen md:h-[500px] bg-black overflow-hidden group">
+    <section className="relative w-full h-screen bg-black overflow-hidden group">
       
       {/* Brand Overlay - Centered Typography scaled down */}
       <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-20 pointer-events-none text-center">
         <motion.h2 
           initial={{ opacity: 0, scale: 0.8 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          className="text-white text-3xl md:text-5xl font-heading font-black tracking-tighter uppercase drop-shadow-[0_10px_30px_rgba(0,0,0,1)]"
+          className="text-white text-2xl sm:text-3xl md:text-7xl lg:text-8xl font-heading font-black tracking-tighter uppercase drop-shadow-[0_10px_30px_rgba(0,0,0,1)] whitespace-nowrap"
         >
           LKP <span className="text-gold">SANKALP</span> 2026
         </motion.h2>
@@ -94,19 +94,19 @@ export default function SankalpCarousel() {
             </div>
 
             {/* Content Overlay - Font sizes reduced */}
-            <div className="absolute inset-x-0 bottom-0 p-6 text-center z-10">
+            <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 text-center z-10">
               <motion.div
                 initial={{ y: 30, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7 }}
               >
-                <h3 className="text-white font-heading font-black text-lg md:text-xl mb-1 drop-shadow-lg">
+                <h3 className="text-white font-heading font-black text-2xl md:text-3xl mb-2 drop-shadow-lg">
                   {item.title}
                 </h3>
-                <p className="text-gold font-body text-[8px] font-black uppercase tracking-[3px] mb-5">
+                <p className="text-gold font-body text-xs md:text-sm font-black uppercase tracking-[4px] mb-6">
                   {item.subtitle}
                 </p>
-                <button className="px-5 py-2 border border-white/60 text-white font-heading font-black text-[8px] uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-maroon-900 transition-all duration-500">
+                <button className="px-8 py-3 border border-white/60 text-white font-heading font-black text-xs uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-maroon-900 transition-all duration-500 rounded">
                   Read More
                 </button>
               </motion.div>

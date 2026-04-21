@@ -108,7 +108,7 @@ export default function HeroSlider() {
                 '🏥 Universal Healthcare',
                 '📚 Education for All',
               ]).flat().map((text, i) => (
-                <span key={i} className="font-heading font-bold text-maroon-800 mx-8 text-[11px] tracking-wide">
+                <span key={i} className="font-heading font-bold text-maroon-800 mx-8 text-xs tracking-wide">
                   {text}
                 </span>
               ))}

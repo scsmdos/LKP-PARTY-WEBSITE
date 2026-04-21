@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaWhatsapp, FaPhone, FaEnvelope, FaMapMarkerAlt, FaHeart } from 'react-icons/fa'
 import logo from '../assets/logo.png'
-import logotext from '../assets/logotext.png'
+import footerTextLogo from '../assets/footer-text-logo.png'
 
 const quickLinks = [
   { label: 'Home', path: '/' },
@@ -46,11 +46,11 @@ export default function Footer() {
             <input
               type="email"
               placeholder="Enter your email address"
-              className="w-full md:w-72 px-6 py-3 rounded-xl text-gray-800 font-body text-xs focus:outline-none focus:ring-2 focus:ring-maroon-500 shadow-inner border-transparent"
+              className="w-full md:w-72 px-6 py-3 rounded text-gray-800 font-body text-xs focus:outline-none focus:ring-2 focus:ring-maroon-500 shadow-inner border-transparent"
             />
             <button
               type="submit"
-              className="w-full sm:w-auto bg-maroon-800 text-white font-heading font-bold text-xs px-8 py-3 rounded-xl shadow-xl hover:bg-maroon-900 transition-all active:scale-95 whitespace-nowrap"
+              className="w-full sm:w-auto bg-maroon-800 text-white font-heading font-black text-xs px-8 py-3 rounded shadow-xl hover:bg-maroon-900 transition-all active:scale-95 whitespace-nowrap uppercase tracking-widest"
             >
               Subscribe
             </button>
@@ -62,23 +62,23 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
         {/* About Column */}
         <div>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="bg-white rounded-full p-1 shadow-md">
+          <div className="flex items-center gap-2 mb-6">
+            <div className="bg-white rounded-full p-1.5 shadow-lg flex items-center justify-center shrink-0">
               <img 
                 src={logo} 
                 alt="Lok Kalyan Party" 
                 className="w-12 h-12 object-contain" 
               />
             </div>
-            <div className="bg-white rounded-md px-3 py-1.5 shadow-md flex items-center h-10">
+            <div className="flex items-center h-16 -mt-1">
               <img 
-                src={logotext} 
+                src={footerTextLogo} 
                 alt="Lok Kalyan Party" 
-                className="h-6 object-contain" 
+                className="h-10 md:h-14 object-contain" 
               />
             </div>
           </div>
-          <p className="font-body text-white/70 text-xs leading-relaxed mb-6">
+          <p className="font-body text-white/80 text-sm font-semibold leading-relaxed mb-6">
             Dedicated to the welfare of Bihar — Jan Seva, Desh Vikas. Building a stronger, united, and prosperous Bihar through inclusive governance.
           </p>
           <div className="flex gap-3">
@@ -103,9 +103,9 @@ export default function Footer() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className="font-body text-white/70 text-xs hover:text-gold transition-colors duration-300 flex items-center gap-2"
+                  className="font-body text-white/80 text-sm font-semibold hover:text-gold transition-colors duration-300 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 rounded-full bg-gold/40" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
                   {link.label}
                 </Link>
               </li>
@@ -121,9 +121,9 @@ export default function Footer() {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className="font-body text-white/70 text-xs hover:text-gold transition-colors duration-300 flex items-center gap-2"
+                  className="font-body text-white/80 text-sm font-semibold hover:text-gold transition-colors duration-300 flex items-center gap-2"
                 >
-                  <span className="w-1 h-1 rounded-full bg-gold/40" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-gold/60" />
                   {link.label}
                 </Link>
               </li>
@@ -135,22 +135,22 @@ export default function Footer() {
         <div>
           <h4 className="font-heading font-bold text-gold text-base mb-5">Contact Us</h4>
           <ul className="space-y-4">
-            <li className="flex items-start gap-3">
-              <FaMapMarkerAlt className="text-gold mt-1 flex-shrink-0 text-sm" />
-              <span className="font-body text-white/70 text-xs leading-relaxed">
+            <li className="flex items-start gap-4">
+              <FaMapMarkerAlt className="text-gold mt-1.5 flex-shrink-0 text-base" />
+              <span className="font-body text-white/80 text-sm font-semibold leading-relaxed">
                 Rajputana Mauhla, Dehri-on-Sone,<br />
                 Rohtas, Bihar - 821307
               </span>
             </li>
-            <li className="flex items-center gap-3">
-              <FaPhone className="text-gold flex-shrink-0 text-sm" />
-              <a href="tel:+918804757309" className="font-body text-white/70 text-xs hover:text-gold transition-colors">
+            <li className="flex items-center gap-4">
+              <FaPhone className="text-gold flex-shrink-0 text-base" />
+              <a href="tel:+918804757309" className="font-body text-white/80 text-sm font-semibold hover:text-gold transition-colors">
                 +91 88047 57309
               </a>
             </li>
-            <li className="flex items-center gap-3">
-              <FaEnvelope className="text-gold flex-shrink-0 text-sm" />
-              <a href="mailto:info@lokkalyanparty.in" className="font-body text-white/70 text-xs hover:text-gold transition-colors">
+            <li className="flex items-center gap-4">
+              <FaEnvelope className="text-gold flex-shrink-0 text-base" />
+              <a href="mailto:info@lokkalyanparty.in" className="font-body text-white/80 text-sm font-semibold hover:text-gold transition-colors">
                 info@lokkalyanparty.in
               </a>
             </li>
@@ -161,12 +161,12 @@ export default function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-white/5 mx-4">
         <div className="max-w-7xl mx-auto py-5 flex flex-col md:flex-row items-center justify-between gap-3 text-center">
-          <p className="font-body text-white/30 text-[10px]">
+          <p className="font-body text-white/40 text-xs text-center md:text-left">
             © {year} Lok Kalyan Party. All rights reserved.
           </p>
-          <div className="flex gap-4">
-            <a href="#" className="font-body text-white/30 text-[10px] hover:text-gold transition-colors">Privacy Policy</a>
-            <a href="#" className="font-body text-white/30 text-[10px] hover:text-gold transition-colors">Terms of Use</a>
+          <div className="flex gap-6 justify-center md:justify-end">
+            <a href="#" className="font-body text-white/40 text-xs hover:text-gold transition-colors">Privacy Policy</a>
+            <a href="#" className="font-body text-white/40 text-xs hover:text-gold transition-colors">Terms of Use</a>
           </div>
         </div>
       </div>

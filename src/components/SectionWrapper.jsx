@@ -9,7 +9,7 @@ export default function SectionWrapper({ children, className = '', id = '' }) {
     <motion.section
       ref={ref}
       id={id}
-      className={`py-20 ${className}`}
+      className={`py-12 md:py-16 ${className}`}
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, ease: 'easeOut' }}
