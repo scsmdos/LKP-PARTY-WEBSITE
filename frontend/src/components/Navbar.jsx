@@ -77,7 +77,7 @@ export default function Navbar() {
             Donate
           </Link>
           <Link
-            to="/join-us"
+            to="/member/login"
             className="bg-[#7A0000] hover:bg-[#600000] text-white font-heading font-bold text-[11px] px-6 py-2 rounded-[4px] transition-all shadow-md"
           >
             Join LKP
@@ -117,10 +117,10 @@ export default function Navbar() {
                 </NavLink>
               ))}
               <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-gray-50">
-                <Link to="/donate" className="w-full bg-[#D4af37] text-center py-3 rounded font-heading font-bold text-slate-900">
+                <Link to="/donate" className="w-full bg-[#D4af37] text-center py-3 rounded font-heading font-bold text-slate-900 shadow-sm">
                   Donate
                 </Link>
-                <Link to="/join-us" className="w-full bg-[#7a0000] text-center py-3 rounded font-heading font-bold text-white">
+                <Link to="/member/login" className="w-full bg-[#7a0000] text-center py-3 rounded font-heading font-bold text-white shadow-md">
                   Join LKP
                 </Link>
               </div>

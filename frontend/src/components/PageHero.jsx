@@ -3,12 +3,9 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FaChevronRight, FaHome } from 'react-icons/fa'
 
-// Navbar is fixed ~64px tall. We account for it so the visible area is properly centered.
-const NAVBAR_HEIGHT = 64
-
 export default function PageHero({ title, breadcrumb = [] }) {
   const NAVBAR_HEIGHT = '64px'
-  const HERO_HEIGHT = '130px'
+  const HERO_HEIGHT = '110px' // Reduced height to remove unnecessary space
 
   return (
     <section
@@ -18,10 +15,10 @@ export default function PageHero({ title, breadcrumb = [] }) {
         background: 'linear-gradient(to right, #FFEEEE, #ffffff, #FFF3CC)',
         borderBottom: '1px solid rgba(159,18,57,0.08)',
         marginTop: NAVBAR_HEIGHT,                 // clear the fixed navbar
-        height: '110px',                         // reduced height for tighter look
+        height: HERO_HEIGHT,                       // now 110px total
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'center',                  // center vertically across everything
+        justifyContent: 'center',                  // center vertically
       }}
     >
       {/* Decorative blobs */}
@@ -42,37 +39,37 @@ export default function PageHero({ title, breadcrumb = [] }) {
           textAlign: 'center'                     // center text
         }}
       >
-        {/* Breadcrumb */}
+        {/* Breadcrumb - Slightly tighter */}
         <nav
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',             // center breadcrumb horizontally
+            justifyContent: 'center',
             gap: '6px',
-            fontSize: '10px',
+            fontSize: '9px',
             fontWeight: 700,
             textTransform: 'uppercase',
             letterSpacing: '0.08em',
             color: '#94a3b8',
-            marginBottom: '4px',
+            marginBottom: '2px', // Tighter space
           }}
         >
           <Link
             to="/"
             style={{ display: 'flex', alignItems: 'center', gap: '5px', color: '#94a3b8', textDecoration: 'none' }}
           >
-            <FaHome style={{ color: 'rgba(159,18,57,0.5)', fontSize: '11px' }} />
+            <FaHome style={{ color: 'rgba(159,18,57,0.5)', fontSize: '10px' }} />
             <span>Home</span>
           </Link>
           {breadcrumb.map((crumb, i) => (
             <React.Fragment key={i}>
-              <FaChevronRight style={{ color: '#cbd5e1', fontSize: '8px' }} />
+              <FaChevronRight style={{ color: '#cbd5e1', fontSize: '7px' }} />
               <span style={{ color: 'rgba(159,18,57,0.7)' }}>{crumb.label}</span>
             </React.Fragment>
           ))}
         </nav>
 
-        {/* Title */}
+        {/* Title - Bigger font size as requested */}
         <motion.h1
           style={{
             fontWeight: 900,

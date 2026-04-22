@@ -16,7 +16,7 @@ const quickLinks = [
 const connectLinks = [
   { label: 'Gallery', path: '/gallery' },
   { label: 'Media', path: '/media' },
-  { label: 'Join Us', path: '/join-us' },
+  { label: 'Join Us', path: '/member/login' },
   { label: 'Donate', path: '/donate' },
   { label: 'Contact', path: '/contact' },
   { label: 'FAQ', path: '/faq' },
